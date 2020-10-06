@@ -1,0 +1,26 @@
+<resources>
+<!--  Login page  -->
+    <string name="app_name">Assignment_2</string>
+    <string name="login_heading">Sign in</string>
+    <string name="login_name_placeholder">Name</string>
+    <string name="login_password_placeholder">Password</string>
+    <string name="login_button">Sign in</string>
+
+<!--  inventory page  -->
+    <string name="inventory_heading">Hi, USER</string>
+    <string name="inventory_output">Add some items to your inventory</string>
+    <string name="inventory_button_text">Inventory button</string>
+    <string name="inventory_label">Inventory</string>
+    <string name="add_button_text">Add item button</string>
+    <string name="add_label">Add item</string>
+    <string name="logout_button_text">Log out button</string>
+    <string name="logout_label">Log out</string>
+
+    <!--  add item page  -->
+    <string name="add_item_heading">Add an item</string>
+    <string name="add_item_name">Item name</string>
+    <string name="add_item_number">Quantity</string>
+    <string name="cancel_item_button">Cancel</string>
+    <string name="add_item_button">Add</string>
+
+</resources>
