@@ -23,17 +23,17 @@
         android:id="@+id/textInputName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="211dp"
         android:layout_marginBottom="32dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/login_name_placeholder"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textInputPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLoginHeading"
-        app:layout_constraintVertical_bias="1.0"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33999997" />
 
     <EditText
         android:id="@+id/textInputPassword"
@@ -41,23 +41,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/login_password_placeholder"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/buttonSignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputName"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputName" />
 
     <Button
         android:id="@+id/buttonSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="311dp"
         android:text="@string/login_button"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputPassword" />

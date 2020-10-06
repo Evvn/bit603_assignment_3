@@ -1,6 +1,6 @@
 <resources>
 <!--  Login page  -->
-    <string name="app_name">Assignment_2</string>
+    <string name="app_name">Assignment_3</string>
     <string name="login_heading">Sign in</string>
     <string name="login_name_placeholder">Name</string>
     <string name="login_password_placeholder">Password</string>

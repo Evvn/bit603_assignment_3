@@ -1,4 +1,4 @@
-package com.example.assignment_2;
+package com.example.assignment_3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,30 +24,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // initialize users
-        final User jason = new User();
-        jason.setUsername("Jason");
-        jason.setPassword("Sword");
-        jason.setFavoriteColor("red");
-
-        final User billy = new User();
-        billy.setUsername("Billy");
-        billy.setPassword("Dinosaur");
-        billy.setFavoriteColor("blue");
-
-        final User zack = new User();
-        zack.setUsername("Zack");
-        zack.setPassword("Elephant");
-        zack.setFavoriteColor("black");
-
-        final User trini = new User();
-        trini.setUsername("Trini");
-        trini.setPassword("Tiger");
-        trini.setFavoriteColor("yellow");
-
-        final User kimberly = new User();
-        kimberly.setUsername("Kimberly");
-        kimberly.setPassword("Bird");
-        kimberly.setFavoriteColor("pink");
+        final User admin = new User();
+        admin.setUsername("Admin");
+        admin.setPassword("CookieManagement84");
 
         // create set of usernames for validation
         final Set<String> usersSet = new HashSet<String>(Arrays.asList("Jason", "Billy", "Zack", "Trini", "Kimberly"));

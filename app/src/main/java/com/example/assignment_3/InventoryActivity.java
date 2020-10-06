@@ -1,4 +1,4 @@
-package com.example.assignment_2;
+package com.example.assignment_3;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;

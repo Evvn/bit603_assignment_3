@@ -1,4 +1,4 @@
-package com.example.assignment_2;
+package com.example.assignment_3;
 
 // user class
 public class User {
