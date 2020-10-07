@@ -25,5 +25,17 @@
 
     <!--    user management page    -->
     <string name="user_management_heading">User management</string>
+    <string name="view_user_button">View user</string>
+    <string name="delete_user_button">Delete user</string>
+    <string name="add_user_button">Add user</string>
+
+    <!--    view user page   -->
+    <string name="view_user_heading">View user</string>
+
+    <!--    delete user page   -->
+    <string name="delete_user_heading">Delete user</string>
+
+    <!--    add user page   -->
+    <string name="add_user_heading">Add user</string>
 
 </resources>
