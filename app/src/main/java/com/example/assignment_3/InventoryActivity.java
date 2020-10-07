@@ -29,14 +29,6 @@ public class InventoryActivity extends AppCompatActivity {
         final ImageView iconLogOut = findViewById(R.id.iconLogOut);
         final TextView inventoryOutput = findViewById(R.id.inventoryOutput);
 
-        // inventory screen heading - personalise to current user
-        String customHeading = "Hi, " + MainActivity.currentUser.getUsername();
-        // set message
-        textHeading.setText(customHeading);
-        // set color
-        int favoriteColor = Color.parseColor(MainActivity.currentUser.getFavoriteColor());
-        textHeading.setTextColor(favoriteColor);
-
         // logout button listener
         iconLogOut.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
