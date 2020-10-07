@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.ColumnInfo;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 @Entity(tableName = "User") // "User" = table name
 public class User {
@@ -19,7 +19,7 @@ public class User {
     private String password;
 
     @ColumnInfo(name = "Dob")
-    private Date dob;
+    private SimpleDateFormat dob;
 
     @ColumnInfo(name = "EmployeeNumber")
     private int employeeNumber;
@@ -50,11 +50,11 @@ public class User {
         this.password = password;
     }
 
-    public Date getDob() {
+    public SimpleDateFormat getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(SimpleDateFormat dob) {
         this.dob = dob;
     }
 

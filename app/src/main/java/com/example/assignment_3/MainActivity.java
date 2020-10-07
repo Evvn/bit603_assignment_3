@@ -1,6 +1,7 @@
 package com.example.assignment_3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,6 +17,8 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static UserDatabase userDatabase;
+
     public static boolean isAdmin = false;
     public static boolean isLoggedIn = false;
 
@@ -23,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // initialise user db
+        // init inventory db
+        userDatabase = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "userdb").allowMainThreadQueries().build();
 
         // create hard-coded admin user who is able to manage users
         final String adminUsername = "Admin";
