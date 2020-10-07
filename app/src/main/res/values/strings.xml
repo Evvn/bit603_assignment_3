@@ -37,5 +37,13 @@
 
     <!--    add user page   -->
     <string name="add_user_heading">Add user</string>
+    <string name="add_user_username">Username</string>
+    <string name="add_user_password">Password</string>
+    <string name="add_user_dob">DOB</string>
+    <string name="add_user_employee_number">Employee number</string>
+    <string name="add_user_phone_number">Phone number</string>
+    <string name="add_user_address">Address</string>
+    <string name="add_user_button_cancel">Cancel</string>
+    <string name="add_user_button_submit">Add</string>
 
 </resources>

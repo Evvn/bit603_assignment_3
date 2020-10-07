@@ -16,6 +16,9 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static boolean isAdmin = false;
+    public static boolean isLoggedIn = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                     // now, check if password is admin password
                     if (textPassword.getText().toString().equals(adminPassword)) {
                         // if credentials are correct, nav to main Inventory activity screen
+                        isAdmin = true;
+                        isLoggedIn = true;
                         startActivity(mgmt);
                     } else {
                         // password is not correct, display error message

@@ -8,9 +8,14 @@ import java.util.List;
 @androidx.room.Dao
 public interface Dao {
 
+    @Insert void addUser(User u);
+
     @Insert
     public void addItem(Item i);
 
     @Query("SELECT * FROM Item")
     public List<Item> getItems();
+
+    @Query("SELECT * FROM User")
+    public List<User> getUsers();
 }

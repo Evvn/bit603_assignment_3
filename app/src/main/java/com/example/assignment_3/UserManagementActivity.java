@@ -18,6 +18,17 @@ public class UserManagementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_management);
 
+        // check if user is logged in (if not, navigate to login page)
+        if (!MainActivity.isLoggedIn) {
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+        }
+        // check if user is admin (if not, navigate to inventory page)
+        if (!MainActivity.isAdmin) {
+            Intent i = new Intent(getApplicationContext(), InventoryActivity.class);
+            startActivity(i);
+        }
+
         // user mgmt buttons
         final Button buttonViewUser = findViewById(R.id.buttonViewUser);
         final Button buttonDeleteUser = findViewById(R.id.buttonDeleteUser);
@@ -65,6 +76,8 @@ public class UserManagementActivity extends AppCompatActivity {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // logout
+                        MainActivity.isAdmin = false;
+                        MainActivity.isLoggedIn = false;
                         // return to sign in page
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(i);
