@@ -25,12 +25,14 @@
 
     <!--    user management page    -->
     <string name="user_management_heading">User management</string>
-    <string name="view_user_button">View user</string>
+    <string name="view_user_button">View users</string>
     <string name="delete_user_button">Delete user</string>
     <string name="add_user_button">Add user</string>
 
     <!--    view user page   -->
     <string name="view_user_heading">View users</string>
+    <string name="users_output">Add some users to your database first</string>
+    <string name="button_close_view_users">Back</string>
 
     <!--    delete user page   -->
     <string name="delete_user_heading">Delete user</string>
