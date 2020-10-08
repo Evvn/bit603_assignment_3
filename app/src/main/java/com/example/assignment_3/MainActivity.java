@@ -17,7 +17,7 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static UserDatabase userDatabase;
+    public static InventoryDatabase inventoryDatabase;
 
     public static boolean isAdmin = false;
     public static boolean isLoggedIn = false;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         // initialise user db
         // init inventory db
-        userDatabase = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "userdb").allowMainThreadQueries().build();
+        inventoryDatabase = Room.databaseBuilder(getApplicationContext(), InventoryDatabase.class, "userdb").allowMainThreadQueries().build();
 
         // create hard-coded admin user who is able to manage users
         final String adminUsername = "Admin";

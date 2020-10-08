@@ -20,7 +20,7 @@ public class AddUserActivity extends AppCompatActivity {
     // error message reusable function
     public void alertDialog(String message) {
         // Init dialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(AddItemActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(AddUserActivity.this);
         // Set characteristics
         builder.setMessage(message)
                 .setTitle("Add item error");
@@ -48,8 +48,8 @@ public class AddUserActivity extends AppCompatActivity {
         final EditText textEmployeeNumber = findViewById(R.id.textEmployeeNumber);
         final EditText textPhoneNumber = findViewById(R.id.textPhoneNumber);
         final EditText textAddress = findViewById(R.id.textAddress);
-        final Button buttonCancel = findViewById(R.id.buttonAddUserSubmit);
-        final Button buttonAddUser = findViewById(R.id.buttonCancelUser);
+        final Button buttonCancel = findViewById(R.id.buttonCancelUser);
+        final Button buttonAddUser = findViewById(R.id.buttonAddUserSubmit);
 
         // cancel button event listener
         buttonCancel.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +63,7 @@ public class AddUserActivity extends AppCompatActivity {
         // add item button event listener
         buttonAddUser.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // if item name is empty, show error
+                // if field is empty, show relevant error
                 if (textUsername.getText().toString().isEmpty()) {
                     alertDialog("Please add a username.");
                     return;
@@ -93,7 +93,7 @@ public class AddUserActivity extends AppCompatActivity {
                 // Obtain data from the interface
                 String username = textUsername.getText().toString();
                 String password = textPassword.getText().toString();
-                SimpleDateFormat dob = new SimpleDateFormat(textDob.getText().toString(), Locale.getDefault());
+                String dob = textDob.getText().toString();
                 int employeeNumber = Integer.parseInt(textEmployeeNumber.getText().toString());
                 int phoneNumber = Integer.parseInt(textPhoneNumber.getText().toString());
                 String address = textAddress.getText().toString();
@@ -108,12 +108,12 @@ public class AddUserActivity extends AppCompatActivity {
                 u.setAddress(address);
 
                 // Insert customer into database
-                MainActivity.userDatabase.dao().addUser(u);
+                MainActivity.inventoryDatabase.dao().addUser(u);
 
                 // Display a message
                 Toast.makeText(getBaseContext(),"New user added successfully!", Toast.LENGTH_SHORT).show();
 
-                // navigate to inventory page
+                // navigate to user mgmt page
                 Intent userMgmt = new Intent(getApplicationContext(), UserManagementActivity.class);
                 startActivity(userMgmt);
             }

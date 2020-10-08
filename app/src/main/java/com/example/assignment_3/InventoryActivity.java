@@ -29,6 +29,9 @@ public class InventoryActivity extends AppCompatActivity {
         final ImageView iconLogOut = findViewById(R.id.iconLogOut);
         final TextView inventoryOutput = findViewById(R.id.inventoryOutput);
 
+        // init inventory db
+        inventoryDatabase = Room.databaseBuilder(getApplicationContext(), InventoryDatabase.class, "inventorydb").allowMainThreadQueries().build();
+
         // logout button listener
         iconLogOut.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -60,9 +63,6 @@ public class InventoryActivity extends AppCompatActivity {
             }
         });
         // end logout code
-
-        // init inventory db
-        inventoryDatabase = Room.databaseBuilder(getApplicationContext(), InventoryDatabase.class, "inventorydb").allowMainThreadQueries().build();
 
         // list db to something
         List<Item> items = inventoryDatabase.dao().getItems();

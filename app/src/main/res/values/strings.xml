@@ -30,7 +30,7 @@
     <string name="add_user_button">Add user</string>
 
     <!--    view user page   -->
-    <string name="view_user_heading">View user</string>
+    <string name="view_user_heading">View users</string>
 
     <!--    delete user page   -->
     <string name="delete_user_heading">Delete user</string>
