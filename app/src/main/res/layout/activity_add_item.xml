@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonAddItem"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextItemNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerItemType" />
 
     <Button
         android:id="@+id/buttonAddItem"
@@ -47,13 +47,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonCancelItem"
-        app:layout_constraintTop_toBottomOf="@+id/editTextItemNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerItemType" />
 
     <EditText
         android:id="@+id/editTextItemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/add_item_name"
         android:inputType="textPersonName"
@@ -62,19 +63,39 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <EditText
         android:id="@+id/editTextItemNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/add_item_number"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCancelItem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextItemName"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextItemName" />
+
+    <Spinner
+        android:id="@+id/spinnerItemType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextItemNumber"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/editTextItemNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textItemTypeLabel" />
+
+    <TextView
+        android:id="@+id/textItemTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/add_item_type_label"
+        app:layout_constraintStart_toStartOf="@+id/spinnerItemType"
+        app:layout_constraintTop_toBottomOf="@+id/editTextItemNumber" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,7 @@
     <string name="add_item_heading">Add an item</string>
     <string name="add_item_name">Item name</string>
     <string name="add_item_number">Quantity</string>
+    <string name="add_item_type_label">Item type</string>
     <string name="cancel_item_button">Cancel</string>
     <string name="add_item_button">Add</string>
 

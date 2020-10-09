@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +22,25 @@ public class MainActivity extends AppCompatActivity {
 
     public static boolean isAdmin = false;
     public static boolean isLoggedIn = false;
+
+    // error message reusable function
+    public void alertDialog(String title, String message) {
+        // Init dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        // Set characteristics
+        builder.setMessage(message)
+                .setTitle(title);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // OK button was clicked
+            }
+        });
+        // Get AlertDialog
+        AlertDialog dialog = builder.create();
+        // Show dialog
+        dialog.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,49 +78,37 @@ public class MainActivity extends AppCompatActivity {
                         isLoggedIn = true;
                         startActivity(mgmt);
                     } else {
-                        // password is not correct, display error message
-                        // Init dialog
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        // Set characteristics
-                        builder.setMessage("Password does not match, please try again!")
-                                .setTitle("Sign in error");
-
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // OK button was clicked
-                                // clear password
-                                textPassword.setText("");
-                            }
-                        });
-                        // Get AlertDialog
-                        AlertDialog dialog = builder.create();
-                        // Show dialog
-                        dialog.show();
+                        // admin password is not correct, display error message
+                        alertDialog("Sign in error", "Password does not match, please try again!");
                     }
 
                 } else {
                     // check if user exists in user db
-                    if (1 == 1) {
+                    // Pull users table from db
+                    List<User> users = inventoryDatabase.dao().getUsers();
+                    Boolean userExists = false;
+                    String checkPassword = "";
+                    for(User u : users) {
+                        if (u.getUsername().equals(textUsername.getText().toString())) {
+                            userExists = true;
+                            checkPassword = u.getPassword();
+                        }
+                    }
+                    if (userExists) {
                         // check user password matches
+                        if (textPassword.getText().toString().equals(checkPassword)) {
+                            // username and password are correct, redirect to inventory page
+                            startActivity(i);
+                        } else {
+                            // password does not match, show error
+                            alertDialog("Sign in error", "Password does not match!");
+                            textPassword.setText("");
+                        }
                     } else {
                         // username is not registered, make sure it's capitalised?
-                        // Init dialog
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        // Set characteristics
-                        builder.setMessage("Username does not exist, make sure it's capitalised!")
-                                .setTitle("Sign in error");
-
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // OK button was clicked
-                                // clear password
-                                textPassword.setText("");
-                            }
-                        });
-                        // Get AlertDialog
-                        AlertDialog dialog = builder.create();
-                        // Show dialog
-                        dialog.show();
+                        alertDialog("Sign in error", "Username does not exist, make sure it's capitalised!");
+                        textUsername.setText("");
+                        textPassword.setText("");
                     }
                 }
             }

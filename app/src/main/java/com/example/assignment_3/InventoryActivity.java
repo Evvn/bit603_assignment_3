@@ -16,8 +16,6 @@ import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity {
 
-    public static InventoryDatabase inventoryDatabase;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +26,6 @@ public class InventoryActivity extends AppCompatActivity {
         final ImageView iconAddItem = findViewById(R.id.iconAddItem);
         final ImageView iconLogOut = findViewById(R.id.iconLogOut);
         final TextView inventoryOutput = findViewById(R.id.inventoryOutput);
-
-        // init inventory db
-        inventoryDatabase = Room.databaseBuilder(getApplicationContext(), InventoryDatabase.class, "inventorydb").allowMainThreadQueries().build();
 
         // logout button listener
         iconLogOut.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +60,7 @@ public class InventoryActivity extends AppCompatActivity {
         // end logout code
 
         // list db to something
-        List<Item> items = inventoryDatabase.dao().getItems();
+        List<Item> items = MainActivity.inventoryDatabase.dao().getItems();
         String output = "";
         for(Item i : items) {
             output += i.getQuantity() + "x " + i.getItemName() + "\n";
@@ -75,7 +70,7 @@ public class InventoryActivity extends AppCompatActivity {
         // reload inventory db on icon click
         iconInventory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                List<Item> items = inventoryDatabase.dao().getItems();
+                List<Item> items = MainActivity.inventoryDatabase.dao().getItems();
                 String output = "";
                 for(Item i : items) {
                     output += i.getQuantity() + "x " + i.getItemName() + "\n";

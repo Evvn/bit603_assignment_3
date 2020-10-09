@@ -7,8 +7,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AddItemActivity extends AppCompatActivity {
@@ -21,8 +23,17 @@ public class AddItemActivity extends AppCompatActivity {
         // declare elements
         final EditText textItemName = findViewById(R.id.editTextItemName);
         final EditText textItemNumber = findViewById(R.id.editTextItemNumber);
+        final Spinner itemType = findViewById(R.id.spinnerItemType);
         final Button buttonCancelAdd = findViewById(R.id.buttonCancelItem);
         final Button buttonAddItem = findViewById(R.id.buttonAddItem);
+
+        // set spinner values to item type options
+        final String[] itemTypes = new String[] {"Biscuit", "Cookie", "Cake", "Ingredient", "Other"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, itemTypes);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        itemType.setAdapter(adapter);
+
 
         // cancel button event listener
         buttonCancelAdd.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +97,7 @@ public class AddItemActivity extends AppCompatActivity {
                 i.setQuantity(itemQuantity);
 
                 // Insert customer into database
-                InventoryActivity.inventoryDatabase.dao().addItem(i);
+                MainActivity.inventoryDatabase.dao().addItem(i);
 
                 // Display a message
                 Toast.makeText(getBaseContext(),"New item added successfully!", Toast.LENGTH_SHORT).show();
