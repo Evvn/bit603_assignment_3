@@ -15,6 +15,25 @@ import android.widget.Toast;
 
 public class AddItemActivity extends AppCompatActivity {
 
+    // error message reusable function
+    public void alertDialog(String title, String message) {
+        // Init dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(AddItemActivity.this);
+        // Set characteristics
+        builder.setMessage(message)
+                .setTitle(title);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // OK button was clicked
+            }
+        });
+        // Get AlertDialog
+        AlertDialog dialog = builder.create();
+        // Show dialog
+        dialog.show();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +42,7 @@ public class AddItemActivity extends AppCompatActivity {
         // declare elements
         final EditText textItemName = findViewById(R.id.editTextItemName);
         final EditText textItemNumber = findViewById(R.id.editTextItemNumber);
-        final Spinner itemType = findViewById(R.id.spinnerItemType);
+        final Spinner spinnerItemType = findViewById(R.id.spinnerItemType);
         final Button buttonCancelAdd = findViewById(R.id.buttonCancelItem);
         final Button buttonAddItem = findViewById(R.id.buttonAddItem);
 
@@ -32,7 +51,7 @@ public class AddItemActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, itemTypes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        itemType.setAdapter(adapter);
+        spinnerItemType.setAdapter(adapter);
 
 
         // cancel button event listener
@@ -49,54 +68,27 @@ public class AddItemActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // if item name is empty, show error
                 if (textItemName.getText().toString().isEmpty()) {
-                    // Init dialog
-                    AlertDialog.Builder builder = new AlertDialog.Builder(AddItemActivity.this);
-                    // Set characteristics
-                    builder.setMessage("Please add an item name.")
-                            .setTitle("Add item error");
-
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // OK button was clicked
-                        }
-                    });
-                    // Get AlertDialog
-                    AlertDialog dialog = builder.create();
-                    // Show dialog
-                    dialog.show();
+                    alertDialog("Add item error", "Please add an item name");
                     return;
                 }
                 // if quantity is empty, show error
                 if (textItemNumber.getText().toString().isEmpty()) {
-                    // Init dialog
-                    AlertDialog.Builder builder = new AlertDialog.Builder(AddItemActivity.this);
-                    // Set characteristics
-                    builder.setMessage("Please add an item quantity.")
-                            .setTitle("Add item error");
-
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // OK button was clicked
-                        }
-                    });
-                    // Get AlertDialog
-                    AlertDialog dialog = builder.create();
-                    // Show dialog
-                    dialog.show();
+                    alertDialog("Add item error", "Please add an item quantity");
                     return;
                 }
 
-                // add item to database
                 // Obtain data from the interface
                 String itemName = textItemName.getText().toString();
                 int itemQuantity = Integer.parseInt(textItemNumber.getText().toString());
+                String itemType = spinnerItemType.getSelectedItem().toString();
 
-                // Create new customer object
+                // Create new item object
                 Item i = new Item();
                 i.setItemName(itemName);
                 i.setQuantity(itemQuantity);
+                i.setItemType(itemType);
 
-                // Insert customer into database
+                // Insert item into database
                 MainActivity.inventoryDatabase.dao().addItem(i);
 
                 // Display a message
