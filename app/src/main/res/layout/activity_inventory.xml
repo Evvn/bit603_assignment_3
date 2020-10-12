@@ -90,7 +90,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:scrollbarStyle="insideOverlay"
-        app:layout_constraintBottom_toTopOf="@+id/iconAddItem"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPrev"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInventoryHeading"
@@ -117,5 +117,53 @@
                 app:lineHeight="48dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/buttonAddTestItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/test_items_text"
+        app:layout_constraintBottom_toTopOf="@+id/iconLogOut"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonPrev"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/button_prev"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddTestItems"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNext"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/button_next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonPrev"
+        app:layout_constraintTop_toTopOf="@+id/buttonPrev" />
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/clear_items_text"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonAddTestItems"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAddTestItems" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

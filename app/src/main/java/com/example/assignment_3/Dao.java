@@ -18,4 +18,7 @@ public interface Dao {
 
     @Query("SELECT * FROM User")
     public List<User> getUsers();
+
+    @Query("DELETE FROM Item")
+    public void deleteItems();
 }

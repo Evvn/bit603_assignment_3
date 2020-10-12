@@ -15,6 +15,10 @@
     <string name="add_label">Add item</string>
     <string name="logout_button_text">Log out button</string>
     <string name="logout_label">Log out</string>
+    <string name="button_prev">Previous</string>
+    <string name="button_next">Next</string>
+    <string name="clear_items_text">Clear items</string>
+    <string name="test_items_text">Test items</string>
 
     <!--  add item page  -->
     <string name="add_item_heading">Add an item</string>
