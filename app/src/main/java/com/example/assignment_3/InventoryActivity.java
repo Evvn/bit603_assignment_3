@@ -27,7 +27,7 @@ public class InventoryActivity extends AppCompatActivity {
         for(Item i : items) {
             // only show 5, count and make sure index is within startingIndex + 5
             if (counter <= 5 && index >= startingIndex && index <= startingIndex + 5) {
-                output += i.getQuantity() + "x " + i.getItemName() + " " + i.getItemType() + "\n";
+                output += i.getQuantity() + "x " + i.getItemName() + " (" + i.getItemType() + ")\n";
                 counter++;
             }
             index++;
