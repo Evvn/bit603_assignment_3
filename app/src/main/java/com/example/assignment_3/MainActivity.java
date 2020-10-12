@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                         // check user password matches
                         if (textPassword.getText().toString().equals(checkPassword)) {
                             // username and password are correct, redirect to inventory page
+                            isAdmin = false;
+                            isLoggedIn = true;
                             startActivity(i);
                         } else {
                             // password does not match, show error

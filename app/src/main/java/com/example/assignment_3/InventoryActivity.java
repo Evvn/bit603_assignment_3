@@ -69,9 +69,20 @@ public class InventoryActivity extends AppCompatActivity {
         final Button buttonNext = findViewById(R.id.buttonNext);
         final Button buttonClear = findViewById(R.id.buttonClear);
         final Button buttonTest = findViewById(R.id.buttonAddTestItems);
+        final ImageView iconUsers = findViewById(R.id.iconUserManagement);
+        final TextView textUsers = findViewById(R.id.textUserManagement);
 
         // list db to something
         final List<Item> items = MainActivity.inventoryDatabase.dao().getItems();
+
+        // if user is admin, show user mgmt page button
+        iconUsers.setVisibility(View.INVISIBLE);
+        textUsers.setVisibility(View.INVISIBLE);
+
+        if (MainActivity.isAdmin) {
+            iconUsers.setVisibility(View.VISIBLE);
+            textUsers.setVisibility(View.VISIBLE);
+        }
 
         // show or hide next and prev buttons on load if needed
         if (showPrev(startingIndex)) {
@@ -257,6 +268,15 @@ public class InventoryActivity extends AppCompatActivity {
                 AlertDialog dialog = builder.create();
                 // Show dialog
                 dialog.show();
+            }
+        });
+
+        // if admin clicks user mgmt icon
+        iconUsers.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // navigate to user mgmt activity
+                Intent i = new Intent(getApplicationContext(), UserManagementActivity.class);
+                startActivity(i);
             }
         });
     }

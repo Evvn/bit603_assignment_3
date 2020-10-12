@@ -1,5 +1,6 @@
 package com.example.assignment_3;
 
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -21,4 +22,7 @@ public interface Dao {
 
     @Query("DELETE FROM Item")
     public void deleteItems();
+
+    @Delete
+    public void deleteUser(User u);
 }

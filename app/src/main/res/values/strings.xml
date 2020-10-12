@@ -9,6 +9,8 @@
     <!--  inventory page  -->
     <string name="inventory_heading">Inventory</string>
     <string name="inventory_output">Add some items to your inventory</string>
+    <string name="users_button_label">Users</string>
+    <string name="users_button_text">User management button</string>
     <string name="inventory_button_text">Inventory button</string>
     <string name="inventory_label">Inventory</string>
     <string name="add_button_text">Add item button</string>
@@ -41,6 +43,9 @@
 
     <!--    delete user page   -->
     <string name="delete_user_heading">Delete user</string>
+    <string name="input_username">Username</string>
+    <string name="button_cancel_delete_user">Cancel</string>
+    <string name="button_delete_user">Delete</string>
 
     <!--    add user page   -->
     <string name="add_user_heading">Add user</string>
